@@ -129,7 +129,7 @@ class chatting(Command):
 
         if message.content.startswith(prefix+"도움") or message.content.startswith(prefix+"commandlist") or message.content.startswith(prefix+"cl"):
             a = message.content
-            a = a[7:]
+            a = a[5:]
             if a == "":
                 embed=discord.Embed(title="📜 도움말", description="데이터코리아 봇의 사용을 도와줄 도움말입니다. 다음 명령어 그룹들을 참고하세요.", color=0x237ccd)
                 embed.add_field(name=prefix+"도움 기능", value="데이터코리아 봇에 있는 기능에 대해 알려드립니다.", inline=True)
@@ -169,15 +169,16 @@ class chatting(Command):
             embed = discord.Embed(title="👋 반가워요.", description="점점 발전하고 있으니 잘 봐주세요!\n\n기능추가문의: (administrator@data-korea.com)" ,color=colorers)
             embed.set_thumbnail(url=bot_profile)
             await message.channel.send(embed=embed)
-             if message.content.startswith(prefix+"초대링크") or message.content.startswith(prefix+"초대") or message.content.startswith(prefix+"invite") or message.content.startswith(prefix+"join") or message.content.startswith(prefix+"초대링크내놔"):
+        if message.content.startswith(prefix+"초대링크") or message.content.startswith(prefix+"초대") or message.content.startswith(prefix+"invite") or message.content.startswith(prefix+"join") or message.content.startswith(prefix+"초대링크내놔"):
             a = self.client.user.id
             bot_profile = self.client.get_user(a).avatar_url
             colorer = [0x000000,0xFFFFFF]
             colorers = random.choice(colorer)
-            embed = discord.Embed(title="🙏초대해주시다니, 감사합니다!", description="초대 링크 : https://discordapp.com/api/oauth2/authorize?client_id=515144508027961365&permissions=8&scope=bot" + "\n링크가 안먹히나요? TanzenT Lab. (administrator@data-korea.com) 에 연락을 주세요!" ,color=colorers)
+            embed = discord.Embed(title="🙏초대해주시다니, 감사합니다!", description="초대 링크 : ('https://discordapp.com/api/oauth2/authorize?client_id=515144508027961365&permissions=8&scope=bot')" + "\n링크가 안먹히나요? TanzenT Lab. (administrator@data-korea.com) 에 연락을 주세요!" ,color=colorers)
             embed.set_thumbnail(url=bot_profile)
             await message.channel.send(embed=embed)
 
+            
         if message.content.startswith(prefix+"핑"):
             nowasdf = datetime.datetime.now()
             await message.channel.trigger_typing()
